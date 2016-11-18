@@ -4,7 +4,7 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyFirtProject;
 using MyLibrary;
-
+using System.Collections.Generic;
 
 namespace MyFirtProjectTest
 {
@@ -14,7 +14,7 @@ namespace MyFirtProjectTest
         public void IndexOfWithIndex_Valid(string subStr, string str, int startIndex)
         {
             Assert.AreEqual(str.IndexOf(subStr, startIndex),
-                            MyLibrary.MyString.IndexOf(subStr, str, startIndex));
+                            MyString.IndexOf(subStr, str, startIndex));
         }
         [TestMethod]
         public void TestIndexOfWithIndex_Valid()
@@ -36,7 +36,7 @@ namespace MyFirtProjectTest
         public void IndexOf_Valid(string subStr, string str)
         {
             Assert.AreEqual(str.IndexOf(subStr),
-                            MyLibrary.MyString.IndexOf(subStr, str));
+                            MyString.IndexOf(subStr, str));
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace MyFirtProjectTest
 
         public void StartsWith_valid(string subStr, string str)
         {
-            Assert.AreEqual(str.StartsWith(subStr), MyLibrary.MyString.StartsWith(subStr, str));
+            Assert.AreEqual(str.StartsWith(subStr), MyString.StartsWith(subStr, str));
         }
         [TestMethod]
         public void TestStartsWith_valid()
@@ -81,7 +81,7 @@ namespace MyFirtProjectTest
 
         public void EndWith_valid(string subStr, string str)
         {
-            Assert.AreEqual(str.EndsWith(subStr), MyLibrary.MyString.EndsWith(subStr, str));
+            Assert.AreEqual(str.EndsWith(subStr), MyString.EndsWith(subStr, str));
         }
 
         [TestMethod]
@@ -103,7 +103,7 @@ namespace MyFirtProjectTest
         public void LastIndexOf_valid(string subStr, string str)
         {
             Assert.AreEqual(str.LastIndexOf(subStr),
-                            MyLibrary.MyString.LastIndexOf(subStr, str));
+                            MyString.LastIndexOf(subStr, str));
         }
 
         [TestMethod]
@@ -127,7 +127,7 @@ namespace MyFirtProjectTest
         public void LastIndexOfWithIndex_valid(string subStr, string str, int startIndex)
         {
             Assert.AreEqual(str.LastIndexOf(subStr, startIndex),
-                            MyLibrary.MyString.LastIndexOf(subStr, str, startIndex));
+                            MyString.LastIndexOf(subStr, str, startIndex));
         }
 
         [TestMethod]
@@ -150,7 +150,7 @@ namespace MyFirtProjectTest
         public void SubString_valid(string str, int startIndex)
         {
             Assert.AreEqual(str.Substring(startIndex),
-                            MyLibrary.MyString.SubString(str, startIndex));
+                            MyString.SubString(str, startIndex));
         }
 
         [TestMethod]
@@ -166,7 +166,7 @@ namespace MyFirtProjectTest
         public void SubStringWithLength_valid(string str, int startIndex, int length)
         {
             Assert.AreEqual(str.Substring(startIndex, length),
-                            MyLibrary.MyString.SubString(str, startIndex, length));
+                            MyString.SubString(str, startIndex, length));
         }
 
         [TestMethod]
@@ -186,7 +186,7 @@ namespace MyFirtProjectTest
             string str = "how are you";
             int startIndex = 11;
             int length = 1;
-            MyLibrary.MyString.SubString(str, startIndex, length);
+            MyString.SubString(str, startIndex, length);
         }
 
         [TestMethod]
@@ -196,7 +196,7 @@ namespace MyFirtProjectTest
             string str = "how are you";
             int startIndex = -1;
             int length = 1;
-            MyLibrary.MyString.SubString(str, startIndex, length);
+            MyString.SubString(str, startIndex, length);
         }
 
         [TestMethod]
@@ -206,12 +206,12 @@ namespace MyFirtProjectTest
             string str = "how are you";
             int startIndex = 5;
             int length = 7;
-            MyLibrary.MyString.SubString(str, startIndex, length);
+            MyString.SubString(str, startIndex, length);
         }
 
         public void ArrayCompare_valid(string[] strArray1, string[] strArray2, bool real)
         {
-            Assert.AreEqual(real, MyLibrary.MyString.ArrayCompare(strArray1, strArray2));
+            Assert.AreEqual(real, MyString.ArrayCompare(strArray1, strArray2));
         }
 
         [TestMethod]
@@ -244,9 +244,9 @@ namespace MyFirtProjectTest
 
         public void Split_valid(string delimiter, string str)
         {
-            Assert.AreEqual(true, MyLibrary.MyString.ArrayCompare(
+            Assert.AreEqual(true, MyString.ArrayCompare(
                             str.Split(new string[] { "," }, StringSplitOptions.None),
-                            MyLibrary.MyString.Split(str, delimiter)));
+                            MyString.Split(str, delimiter)));
         }
 
         [TestMethod]
@@ -265,7 +265,7 @@ namespace MyFirtProjectTest
 
         public void Join_valid(string delimiter, string[] arr)
         {
-            Assert.AreEqual(String.Join(delimiter, arr), MyLibrary.MyString.Join(delimiter, arr));
+            Assert.AreEqual(String.Join(delimiter, arr), MyString.Join(delimiter, arr));
         }
 
         [TestMethod]
@@ -288,7 +288,7 @@ namespace MyFirtProjectTest
 
         public void AddToArray_Valid(string[] strArray, string str, int index, string[] arr)
         {
-            Assert.AreEqual(true, MyLibrary.MyString.ArrayCompare(arr, MyLibrary.MyString.AddToArray(strArray, str, index)));
+            Assert.AreEqual(true, MyString.ArrayCompare(arr, MyString.AddToArray(strArray, str, index)));
         }
 
         [TestMethod]
@@ -317,7 +317,7 @@ namespace MyFirtProjectTest
             string[] strArray = new string[] { "this is", "cool" };
             string str = "interest";
             int index = 3;
-            MyLibrary.MyString.AddToArray(strArray, str, index);
+            MyString.AddToArray(strArray, str, index);
         }
 
         [TestMethod]
@@ -327,12 +327,12 @@ namespace MyFirtProjectTest
             string[] strArray = new string[] { "this is", "cool", "to do" };
             string str = "interest";
             int index = -1;
-            MyLibrary.MyString.AddToArray(strArray, str, index);
+            MyString.AddToArray(strArray, str, index);
         }
 
         public void DelFromArray_Valid(string[] strArray, int index, string[] arr)
         {
-            Assert.AreEqual(true, MyLibrary.MyString.ArrayCompare(arr, MyLibrary.MyString.DelFromArray(strArray, index)));
+            Assert.AreEqual(true, MyString.ArrayCompare(arr, MyString.DelFromArray(strArray, index)));
         }
 
         [TestMethod]
@@ -360,7 +360,7 @@ namespace MyFirtProjectTest
         {
             string[] strArray = new string[] { "", "is", "my", "first", "steps", "in", "IT world" };
             int index = 7;
-            MyLibrary.MyString.DelFromArray(strArray, index);
+            MyString.DelFromArray(strArray, index);
         }
 
         [TestMethod]
@@ -370,11 +370,11 @@ namespace MyFirtProjectTest
             int index = -2;
             try
             {
-                MyLibrary.MyString.DelFromArray(strArray, index);
+                MyString.DelFromArray(strArray, index);
             }
             catch (ArgumentOutOfRangeException e)
             {
-                StringAssert.Contains(e.Message, MyLibrary.MyString.testmesag2);
+                StringAssert.Contains(e.Message, MyString.testmesag2);
                 return;
             }
             Assert.Fail("No exception was thrown.");
@@ -385,10 +385,10 @@ namespace MyFirtProjectTest
     public class MyArrayTest
     {
         public void ArraySortSelection_Void(int[] ArrayIn, int[] ArrayOut, bool real,
-            MyLibrary.MyArraySortDirection direction = MyLibrary.MyArraySortDirection.LowToHight)
+            MyArraySortDirection direction = MyArraySortDirection.LowToHight)
         {
-            MyLibrary.MyArray.ArraySortSelection(ArrayIn, direction);
-            Assert.AreEqual(real, MyLibrary.MyArray.ArrayCompareInt(ArrayIn, ArrayOut));
+            MyArray<int>.ArraySortSelection(ArrayIn, direction);
+            Assert.AreEqual(real, MyArray<int>.ArrayCompareInt(ArrayIn, ArrayOut));
         }
 
         [TestMethod]
@@ -396,22 +396,22 @@ namespace MyFirtProjectTest
         {
             this.ArraySortSelection_Void(new int[] { 5, 7, 3, 9, 2, 4, 1, 6, 8 },
                                 new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 },
-                                true, MyLibrary.MyArraySortDirection.HightToLow);
+                                true, MyArraySortDirection.HightToLow);
         }
 
         [TestMethod]
         public void TestToArray_Valid()
         {
-            Assert.AreEqual(true, MyLibrary.MyArray.ArrayCompareInt(
-                MyLibrary.MyArray.ToArrayInt(1, 2, 3, 45, 3, 4, 7, 235, 2545, 4, 124, 745),
+            Assert.AreEqual(true, MyArray<int>.ArrayCompareInt(
+                MyArray<int>.ToArrayInt(1, 2, 3, 45, 3, 4, 7, 235, 2545, 4, 124, 745),
                 new int[] { 1, 2, 3, 45, 3, 4, 7, 235, 2545, 4, 124, 745, })
             );
-            Assert.AreEqual(true, MyLibrary.MyArray.ArrayCompareInt(
-                MyLibrary.MyArray.ToArrayInt(),
+            Assert.AreEqual(true, MyArray<int>.ArrayCompareInt(
+                MyArray<int>.ToArrayInt(),
                 new int[] { })
             );
-            Assert.AreEqual(true, MyLibrary.MyArray.ArrayCompareInt(
-                MyLibrary.MyArray.ToArrayInt(1),
+            Assert.AreEqual(true, MyArray<int>.ArrayCompareInt(
+                MyArray<int>.ToArrayInt(1),
                 new int[] { 1 })
             );
         }
@@ -421,8 +421,8 @@ namespace MyFirtProjectTest
          MyArraySortDirection direction,
          ArraySortMethod sortmethod = ArraySortMethod.QuickSort)
         {
-            MyArray.ArraySort(arrayIn, direction, sortmethod);
-            Assert.AreEqual(real, MyArray.ArrayCompareInt(arrayIn, ArrayOut));
+            MyArray<int>.ArraySort(arrayIn, direction, sortmethod);
+            Assert.AreEqual(real, MyArray<int>.ArrayCompareInt(arrayIn, ArrayOut));
         }
 
         [TestMethod]
@@ -431,16 +431,16 @@ namespace MyFirtProjectTest
 
             foreach (ArraySortMethod sortMethod in Enum.GetValues(typeof(ArraySortMethod)))
             {
-                this.ArraySortMethod_Void(new int[] { 5, 7, 3, 9, 2, 4, 1, 6, 8 },
+                ArraySortMethod_Void(new int[] { 5, 7, 3, 9, 2, 4, 1, 6, 8 },
                     new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, true,
                     MyLibrary.MyArraySortDirection.LowToHight, sortMethod);
-                this.ArraySortMethod_Void(new int[] { },
+                ArraySortMethod_Void(new int[] { },
                     new int[] { }, true,
                     MyLibrary.MyArraySortDirection.LowToHight, sortMethod);
-                this.ArraySortMethod_Void(new int[] { 5 },
+                ArraySortMethod_Void(new int[] { 5 },
                     new int[] { 5 }, true,
                     MyLibrary.MyArraySortDirection.LowToHight, sortMethod);
-                this.ArraySortMethod_Void(new int[] { 5, 7, 3, 9, 2, 4, 1, 6, 8 },
+                ArraySortMethod_Void(new int[] { 5, 7, 3, 9, 2, 4, 1, 6, 8 },
                     new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 }, true,
                     MyLibrary.MyArraySortDirection.HightToLow, sortMethod);
             }
@@ -454,7 +454,7 @@ namespace MyFirtProjectTest
         public void TestFactorial_Void(int v, int real)
         {
 
-            Assert.AreEqual(real, MyLibrary.MyMath.Factorial(v));
+            Assert.AreEqual(real, MyMath.Factorial(v));
         }
 
         [TestMethod]
@@ -476,7 +476,7 @@ namespace MyFirtProjectTest
         public void TestFibonachi_Void(int v, int real)
         {
 
-            Assert.AreEqual(real, MyLibrary.MyMath.Fibonachi(v));
+            Assert.AreEqual(real, MyMath.Fibonachi(v));
         }
         [TestMethod]
         public void TestFibonachi()
@@ -498,7 +498,7 @@ namespace MyFirtProjectTest
     [TestClass]
     public class MyLinkedListTest
     {
-        public MyLinkedList<T> ArrayToMyList<T>(T[] array)
+        internal MyLinkedList<T> ArrayToMyList<T>(T[] array)
         {
             var myList = new MyLinkedList<T>();
             foreach (T value in array)
@@ -535,7 +535,7 @@ namespace MyFirtProjectTest
 
             myList = ArrayToMyList(new int[] { 5 });
             myList.AddFirst(2);
-            this.ListCompare(myList, new int[] { 2,  5 });
+            this.ListCompare(myList, new int[] { 2, 5 });
 
 
             myList = ArrayToMyList(new int[] { });
@@ -589,9 +589,9 @@ namespace MyFirtProjectTest
 
             myListStr = ArrayToMyList(new string[] { "" });
             myListStr.AddLast("");
-            this.ListCompare(myListStr, new string[] { "","" });
+            this.ListCompare(myListStr, new string[] { "", "" });
 
-            myListStr = ArrayToMyList(new string[] {  });
+            myListStr = ArrayToMyList(new string[] { });
             myListStr.AddLast("");
             this.ListCompare(myListStr, new string[] { "" });
         }
@@ -623,6 +623,65 @@ namespace MyFirtProjectTest
             myListStr.AddAfter(myListStr.First, "");
             this.ListCompare(myListStr, new string[] { "", "" });
 
+
+        }
+
+        [TestMethod]
+        public void TestForeash()
+        {
+            var myList = ArrayToMyList(new string[] { "2", "7", "5" });
+
+
+            var temp = "";
+            foreach (var node in myList)
+            {
+                temp += node;
+            }
+
+            Assert.AreEqual("275", temp);
+
+            var myListstr2 = ArrayToMyList(new string[] { "2" });
+
+
+            temp = "";
+            foreach (var node in myListstr2)
+            {
+                temp += node;
+            }
+
+            Assert.AreEqual("2", temp);
+            var myListstr3 = ArrayToMyList(new string[] { "" });
+
+
+            temp = "";
+            foreach (var node in myListstr3)
+            {
+                temp += node;
+            }
+
+            Assert.AreEqual("", temp);
+
+            var myList1 = ArrayToMyList(new int[] { 2, 7, 5 });
+
+            var temp2 = 0;
+            foreach (var node in myList1)
+            {
+                temp2 += node;
+            }
+
+            Assert.AreEqual(14, temp2);
+            temp2 = 0;
+            var myList2 = ArrayToMyList(new int[] { 2 });
+
+
+            foreach (var node in myList2)
+            {
+                temp2 += node;
+            }
+
+            Assert.AreEqual(2, temp2);
+
+
         }
 
         [TestMethod]
@@ -649,7 +708,7 @@ namespace MyFirtProjectTest
             this.ListCompare(myList, new int[] { 2 });
 
 
-            myList = ArrayToMyList(new int[] { 2, 7, 5 });
+            myList = ArrayToMyList(new int[] { 7, 5, 2 });
             myList.Remove(7);
             myList.Remove(5);
             myList.Remove(2);
@@ -692,10 +751,10 @@ namespace MyFirtProjectTest
             this.ListCompare(myListStr, new string[] { "2", "5" });
 
 
-            myListStr = ArrayToMyList(new [] { "2", "7", "5" });
+            myListStr = ArrayToMyList(new[] { "2", "7", "5" });
             myListStr.Remove("7");
             myListStr.Remove("5");
-            this.ListCompare(myListStr, new [] { "2" });
+            this.ListCompare(myListStr, new[] { "2" });
 
 
             myListStr = ArrayToMyList(new string[] { "2", "7", "5" });
@@ -719,12 +778,12 @@ namespace MyFirtProjectTest
 
             myListStr = ArrayToMyList(new string[] { "1", "1", "1", "1", "1" });
             myListStr.Remove("1");
-            this.ListCompare(myListStr, new string[] { "1", "1", "1", "1"});
+            this.ListCompare(myListStr, new string[] { "1", "1", "1", "1" });
 
 
             myListStr = ArrayToMyList(new string[] { "5" });
-            myListStr.Remove( "5");
-            this.ListCompare(myListStr, new string[] {  });
+            myListStr.Remove("5");
+            this.ListCompare(myListStr, new string[] { });
 
         }
 
@@ -738,7 +797,7 @@ namespace MyFirtProjectTest
 
             myList = ArrayToMyList(new int[] { });
             myList.Clear();
-            this.ListCompare(myList, new int[] {});
+            this.ListCompare(myList, new int[] { });
 
             myList = ArrayToMyList(new int[] { });
             myList.Clear();
@@ -751,7 +810,7 @@ namespace MyFirtProjectTest
 
             var myListStr = ArrayToMyList(new string[] { "2", "7", "5" });
             myListStr.Clear();
-            this.ListCompare(myListStr, new string[] {  });
+            this.ListCompare(myListStr, new string[] { });
 
 
             myListStr = ArrayToMyList(new string[] { });
@@ -768,9 +827,307 @@ namespace MyFirtProjectTest
             myListStr.Clear();
             myListStr.Clear();
             this.ListCompare(myListStr, new string[] { });
-            
+
+        }
+        [TestMethod]
+        public void TestRemoveNodeNull()
+        {
+            var myListStr = ArrayToMyList(new int[] { });
+            try
+            {
+                myListStr.Remove(2);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                StringAssert.Contains(e.Message, MyLinkedList<int>.MessageError);
+                return;
+            }
+            Assert.Fail("No exception was thrown.");
         }
 
+        [TestMethod]
+        public void TestOvner()
+        {
+            var myList = ArrayToMyList(new int[] { });
+            var myList2 = ArrayToMyList(new int[] { 3, 6 });
 
+
+
+            try
+            {
+                myList.AddFirst(1);
+                myList2.AddAfter(myList.First, 2);
+
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                StringAssert.Contains(e.Message, MyLinkedList<int>.MessageError);
+                return;
+            }
+            Assert.Fail("No exception was thrown.");
+        }
+
+    }
+
+    [TestClass]
+    public class MyStack
+    {
+        private MyStack<T> ArrayToStack<T>(T[] array)
+        {
+            var stack = new MyStack<T>();
+            foreach (T value in array)
+            {
+                stack.Push(value);
+            }
+            return stack;
+        }
+
+        private void ListCompare<T>(MyStack<T> stack, T[] arr)
+        {
+            Assert.AreEqual(arr[0], stack.Peek());
+        }
+
+        [TestMethod]
+        public void StackPush()
+        {
+            var stack = ArrayToStack(new string[] { "1", "1", "1", "1", "1" });
+            stack.Push("2");
+            stack.Push("4");
+            stack.Push("5");
+            stack.Push("6");
+            this.ListCompare(stack, new string[] { "6", "5", "4", "2", "1", "1", "1", "1" });
+
+            stack = ArrayToStack(new string[] { });
+            stack.Push("2");
+            stack.Push("4");
+            stack.Push("5");
+            stack.Push("6");
+            this.ListCompare(stack, new string[] { "6", "5", "4", "2" });
+
+            stack = ArrayToStack(new string[] { });
+            stack.Push("2");
+            this.ListCompare(stack, new string[] { "2" });
+
+            MyStack<int> stack2 = ArrayToStack(new int[] { });
+            stack2.Push(2);
+            stack2.Push(4);
+            stack2.Push(5);
+            stack2.Push(6);
+            this.ListCompare(stack2, new int[] { 6, 5, 4, 2 });
+
+            stack2 = ArrayToStack(new int[] { 1 });
+            stack2.Push(2);
+            stack2.Push(4);
+            stack2.Push(5);
+            stack2.Push(6);
+            this.ListCompare(stack2, new int[] { 6, 5, 4, 2, 1 });
+
+            stack2 = ArrayToStack(new int[] { });
+            stack2.Push(2);
+            this.ListCompare(stack2, new int[] { 2 });
+        }
+
+        [TestMethod]
+        public void TestStackPop()
+        {
+            var stack = ArrayToStack(new string[] { "6", "5", "4", "2" });
+            stack.Pop();
+            stack.Pop();
+            stack.Pop();
+            this.ListCompare(stack, new string[] { "6" });
+
+            stack = ArrayToStack(new string[] { "6", "2" });
+            stack.Pop();
+            this.ListCompare(stack, new string[] { "6" });
+
+            var stack2 = ArrayToStack(new int[] { 6, 5, 4, 2 });
+            stack2.Pop();
+            stack2.Pop();
+            stack2.Pop();
+            this.ListCompare(stack2, new int[] { 6 });
+
+            stack2 = ArrayToStack(new int[] { 6, 2 });
+            stack2.Pop();
+            this.ListCompare(stack2, new int[] { 6 });
+        }
+        [TestMethod]
+        public void TestQueueDequeueNull()
+        {
+            var stack = ArrayToStack(new int[] { });
+            try
+            {
+                stack.Pop();
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                StringAssert.Contains(e.Message, MyLinkedList<int>.MessageError);
+                return;
+            }
+            Assert.Fail("No exception was thrown.");
+
+        }
+
+        [TestMethod]
+        public void TestQueuePeekNull()
+        {
+            var stack = ArrayToStack(new int[] { });
+            try
+            {
+                stack.Peek();
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                StringAssert.Contains(e.Message, MyLinkedList<int>.MessageError);
+                return;
+            }
+            Assert.Fail("No exception was thrown.");
+
+        }
+        [TestClass]
+        public class Myqueue
+        {
+            private MyQueue<T> ArrayToQueue<T>(T[] array)
+            {
+                var queue = new MyQueue<T>();
+                foreach (T value in array)
+                {
+                    queue.Enqueue(value);
+                }
+                return queue;
+            }
+
+            private void ListCompare<T>(MyQueue<T> queue, T[] arr)
+            {
+                Assert.AreEqual(arr[0], queue.Peek());
+            }
+
+            [TestMethod]
+            public void QueueEnqueue()
+            {
+                var queue = ArrayToQueue(new string[] { "1", "1" });
+                queue.Enqueue("6");
+                queue.Enqueue("5");
+                queue.Enqueue("4");
+                queue.Enqueue("2");
+                this.ListCompare(queue, new string[] { "1", "1", "6", "5", "4", "2" });
+
+
+                queue = ArrayToQueue(new string[] { });
+                queue.Enqueue("6");
+                queue.Enqueue("5");
+                queue.Enqueue("4");
+                queue.Enqueue("2");
+                this.ListCompare(queue, new string[] { "6", "5", "4", "2" });
+
+
+                queue = ArrayToQueue(new string[] { });
+                queue.Enqueue("6");
+                this.ListCompare(queue, new string[] { "6" });
+
+                var queue2 = ArrayToQueue(new int[] { 1, 1 });
+                queue2.Enqueue(6);
+                queue2.Enqueue(5);
+                queue2.Enqueue(4);
+                queue2.Enqueue(2);
+                this.ListCompare(queue2, new int[] { 1, 1, 6, 5, 4, 2 });
+
+
+                queue2 = ArrayToQueue(new int[] { });
+                queue2.Enqueue(6);
+                queue2.Enqueue(5);
+                queue2.Enqueue(4);
+                queue2.Enqueue(2);
+                this.ListCompare(queue2, new int[] { 6, 5, 4, 2 });
+
+
+                queue2 = ArrayToQueue(new int[] { });
+                queue2.Enqueue(6);
+                this.ListCompare(queue2, new int[] { 6 });
+
+            }
+            [TestMethod]
+            public void TestQueueDequeue()
+            {
+                var queue = ArrayToQueue(new string[] { "6", "5", "4", "2" });
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Dequeue();
+                this.ListCompare(queue, new string[] { "2" });
+
+                queue = ArrayToQueue(new string[] { "6", "2" });
+                queue.Dequeue();
+                this.ListCompare(queue, new string[] { "2" });
+
+                var queue2 = ArrayToQueue(new int[] { 6, 5, 4, 2 });
+                queue2.Dequeue();
+                queue2.Dequeue();
+                queue2.Dequeue();
+                this.ListCompare(queue2, new int[] { 2 });
+
+                queue2 = ArrayToQueue(new int[] { 6, 2 });
+                queue2.Dequeue();
+                this.ListCompare(queue2, new int[] { 2 });
+            }
+            [TestMethod]
+            public void TestQueueDequeueNull()
+            {
+                var Queue = ArrayToQueue(new int[] { });
+                try
+                {
+                    Queue.Dequeue();
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    StringAssert.Contains(e.Message, MyLinkedList<int>.MessageError);
+                    return;
+                }
+                Assert.Fail("No exception was thrown.");
+
+            }
+
+            [TestMethod]
+            public void TestQueuePeekNull()
+            {
+                var Queue = ArrayToQueue(new int[] { });
+                try
+                {
+                    Queue.Peek();
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    StringAssert.Contains(e.Message, MyLinkedList<int>.MessageError);
+                    return;
+                }
+                Assert.Fail("No exception was thrown.");
+
+            }
+        }
+
+        [TestClass]
+        public class MyTestOfDictionary
+        {
+            [TestMethod]
+            public void DictTest()
+            {
+               
+                Dictionary<string, string> myDickt = new Dictionary<string, string>();
+                myDickt.Add("ko", "konty");
+                myDickt.Add("sv", "svittoch");
+                myDickt.Add("mi", "milenium");
+                myDickt.Add("ro", "roshen");
+                Assert.AreEqual("roshen", myDickt["ro"]);
+                myDickt.Remove("ro");
+                Assert.AreEqual(3, myDickt.Count);
+                myDickt.Add("ro", "roshen");
+                myDickt.Add("gv", "gytomyrsijka vypichka");
+                Assert.AreEqual(5, myDickt.Count);
+                Assert.AreEqual(true, myDickt.ContainsKey("ro"));
+
+                Assert.AreEqual(true, myDickt.ContainsValue("roshen"));
+                
+
+            }
+
+        }
     }
 }
